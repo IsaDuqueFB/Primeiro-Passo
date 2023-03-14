@@ -1,0 +1,69 @@
+O primeiro desafio para uma pessoa totalmente leiga:
+# Git x GitHub.
+Se você também, esta em fase de adaptação. Espero te ajudar.
+Primeiro: GIT != GITHUB (GIT é diferente de Github)
+Git é uma ferramenta de controle de versão.
+Github permite que você hospede seus repositórios (projetos). Outras pessoas podem ver e você também pode ver o código de outros desenvolvedores. É uma rede social para programadores. 
+
+## Segundo Passo: Cadastre-se no GitHub.
+Escolha um nickname com carinho e cuidado. Evite faze-lo com palavras “engraçadinhas”. Isso é só uma dica. 
+Há planos pagos. Mas, o gratuito em primeiro momento atende a necessidade. Nos planos pagos você pode ter repositórios privados. 
+
+## Terceiro Passo: Instalar o GIT 
+Pode buscar no seu navegador por GIT ou git-scm.com
+Next, next até finish. Uma instalação comum. 
+
+Vamos configurar o Git da nossa máquina para trabalhar com o Github.
+
+### Abra o Git Bash
+Tem uma versão gráfica – GUI Graphical user interface
+Mas, eu aprendi na CLI – Command line interface, então é dela que se trata. 
+Passos PÓS instalação, são os passos pela primeira vez. 
+
+### Gerar Chave SSH para autorizar o Github.
+Digite no Git Bash esse comando:
+_ssh-keygen –t rsa –b 4096 –C “seu_email@dominio.com”	_.
+LEMBRE-SE DE TROCAR PELO SEU E-MAIL
+
+O resultado será:
+_Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/you/.ssh/id_rsa):_. APERTE ENTER
+Ele vai te pedir uma senha
+_Enter passphrase (empty for no passphrase):
+Enter same passphrase again:_.
+
+Se você inserir uma senha, sempre que for baixar algo de um repositório ou enviar algo pra lá, precisará digitar a senha.
+Mas, você pode apertar o enter e seguir sem senha.
+Você verá a mensagem:
+_Your identification has been saved in /c/Users/you/.ssh/id_rsa
+Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub
+The key fingerprint is:
+Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_.
+
+Agora precisamos adicionar a chave que criamos ao ssh-agent
+#### Para ativa-lo:
+_ssh-agent –s_.
+Adicionar a chave que geramos so ssh-agent
+_Ssh-add ~/.ssh/id_rsa_.
+Agora associar a chave no Github:
+Para copiar a chave, digite no bash:
+Clip < ~/.ssh/id_rsa.pub
+Abra o Github no navegador, faça login e selecione:
+Settings
+No canto esquerdo procure por SSH Keys
+E clique em New
+No title – Pode colocar o nome que preferir. 
+Em Key cole a chave (Ctrl – v)
+Clique em add Key
+Configuramos seu Git com a conta Github.
+Vamos tirar a prova dos nove? (Uma expressão antiga para verificar se está tudo certinho)
+Git Bash:
+Ssh –T git@github.com
+O resultado deve ser:
+The authenticity of host 'github.com (20.201.28.151)' can't be established.
+ED25519 key fingerprint is SHA
+Digite: Yes (aperte enter)
+O resultado:
+Hi UserName! You've successfully authenticated, but GitHub does not provide shell access.
+
+Espero que tenha dado tudo certo. Muito sucesso na sua jornada Dev! E muitas outras pequenas conquistas! Não desista! Persista! 
